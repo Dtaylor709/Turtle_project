@@ -74,8 +74,81 @@ def output_overall_statistics(monthly_data):
         monthly_data: a list of lists, where each sublist contains the month
         name and total values for that month.
     '''
-# overall the last table
+#     column_total = [
+#         ["Nests", 0],
+#         ["Hatched Nests", 0],
+#         ["False Crawls",0],
+#         ["Hit Rocks",0],
+#         ["Nest Predation", 0],
+#     ]
 
+# # overall the last table
+#     for row in monthly_data:
+#         nests = row[1]
+#         print
+        # if column_total == "Nests":
+        #     nest_list = row[1:1] + row[2:1]
+        # print(nest_list)
+
+    # import venv/numpy as np
+    # np.add(first, second, third, fourth, fifth, sixth).tolist() 
+
+    # print(list)
+    #
+
+    # nests_total = 0
+    # false_crawls_total = 0
+    # hit_rocks_total = 0
+    # hatched_nests_total=0
+    # nest_predation_total=0
+
+    # for row in monthly_data:
+    #     # nests_total = int(nests[1:1]) + int(nests[1:2])
+    #     nests_total.append(row[1])
+    #     # print("row",row[1:2])
+    #     # print("row2",row[1:3])
+    #     print(nests_total)
+    #     # nests = nests_total + int(row[1])
+    #     # false_crawls = row[2]
+    #     # hit_rocks = row[3]
+    #     # hatched_nests = row[4]
+    #     # nest_predation = row[5]
+
+
+    #     print("nests",nests_total)
+        # datetime = convert_mmddyyyy_date(row[0])
+        # Nests = int(sum(row[1])
+        # print(Nests)
+
+        # return date[0]
+        # print(month)
+        
+        # if column == "Nests":
+        #     list = items[0]
+        #     nests = list[1] + int(row[1])
+        #     monthly[0] = [month, nests]
+
+                
+    #        monthly = [
+    #     ["October", 0],
+    #     ["November", 0],
+    #     ["December",0],
+    #     ["January",0],
+    #     ["February", 0],
+    #     ["March",0]
+    # ]
+    # # nests = 0
+
+    # for row in monthly_data:
+    #     # print("row",row)
+    #     # datetime = convert_mmddyyyy_date(row[0])
+    #     month = row[0]
+        
+        
+    #      if month == "October":
+    #         october_list = monthly[0]
+    #         nests = october_list[1] + int(row[1])
+    #         monthly[0] = [month, nests]
     # nests = 0
     # false_crawls = 0
     # hit_rocks = 0
@@ -101,58 +174,21 @@ def output_overall_statistics(monthly_data):
     # # print(hatched_nests)
     # # print(nest_predation)
 
-    # return [nests,false_crawls, hit_rocks, hatched_nests, nest_predation ]
-    pass   
-
-def output_monthly_statistics(monthly_data):
-    '''Prints a summary of the total number of nests, hatched nests, false crawls,
-       hit rocks and nest predation per month.
-
-    Args:
-        monthly_data: a list of lists, where each sublist contains the month
-            name and total values for that month.
-    '''
-    # monthy stats the middle table
-
-    # #     for item == 'nests'.groupby('month').agg(
-    # #     # Get sum of the duration column for each group
-    # #     total_duration=('duration', sum),
-    # # print()
-    # # 
-    # monthly = {
-    #     'october':[],
-    #     'november':[],
-    #     'december': [],
-    #     'january':[],
-    #     'february': [],
-    #     'march':[]
-    #     }
-    
-    
-    # nests = 0
-    # false_crawls = 0
-    # hit_rocks = 0
-    # hatched_nests=0
-    # nest_predation=0
-
-    # date = convert_mmddyyyy_date[0]
-    # # month = get_month_name(date)
-    # # # days = monthly[month]
-
-    # for item in month[0]:
-    #     nests += int(item[1])
-    #     false_crawls += int(item[2])
-    #     hit_rocks += int(item[3])
-    #     hatched_nests += int(item[4])
-    #     nest_predation += int(item[5])
-
-    # print(nests)
-    # print(false_crawls)
-    # print(hit_rocks)
-    # print(hatched_nests)
-    # print(nest_predation)
-    
+    # return [nests,false_crawls, hit_rocks, hatched_nests, nest_predation ]  
     pass
+
+# def output_monthly_statistics(monthly_data):
+#     '''Prints a summary of the total number of nests, hatched nests, false crawls,
+#        hit rocks and nest predation per month.
+
+#     Args:
+#         monthly_data: a list of lists, where each sublist contains the month
+#             name and total values for that month.
+#     '''
+#     # monthy stats the middle table
+#     don't need function used daily function instead
+   
+#     pass
 
 def output_nests_per_month_graph(monthly_data):
     '''Prints a graph of the total number of nests found per month.
@@ -321,7 +357,9 @@ def transform_daily_to_monthly(data):
 
 if __name__ == "__main__":
     all_data = read_csv_file('data/2020_2021_turtle_data.csv')
+    
     # print(all_data)
+    
     monthly_data = transform_daily_to_monthly(all_data)
     
     print('2020/2021 Flatback Turtle Migration at Cemetery Beach')
@@ -333,8 +371,15 @@ if __name__ == "__main__":
     for month in output_nests:
         number_x = round(month[1] / 5)
         print(f"{month[0]}: {month[1]} {'X'*number_x}")
-    output_monthly_statistics(monthly_data)
-    print()
+    
+    # output_monthly_statistics(monthly_data)
+    
+    print("Monthly statistics:")
+    for month in monthly_data:
+        print(f"{month[0]} {month[1]} {month[2]} {month[3]} {month[4]} {month[5]} ")
+    
     output_overall_statistics(monthly_data)
-    print()
+    print("Overall:")
+
+
 
